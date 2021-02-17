@@ -23,3 +23,15 @@ ev.on('event.up', () => {
 ```
 
 Ответ:
+
+```ecmascript 6
+/**
+* Основываясь на предположении что используется система координат с отрицательными значениями получаем следующее.
+* При (x > y) & (x > 0) => 'right' => VECTOR_NAME[3]
+* При (x > y) & (x < 0) => 'left' => VECTOR_NAME[1]
+* При (y >= x) & (y > 0) => 'up' => VECTOR_NAME[2]
+* При (y >= x) & (y < 0) => 'down' => VECTOR_NAME[0]
+*/
+
+const VECTOR_NAME = ['down', 'left', 'up', 'right']
+```
