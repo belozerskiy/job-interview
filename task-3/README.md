@@ -45,3 +45,5 @@
 
 - Используйте Vue
 - Работоспособность в актуальной версии Google Chrome
+
+#### [Решение](https://github.com/belozerskiy/task-3-jobinterview)
