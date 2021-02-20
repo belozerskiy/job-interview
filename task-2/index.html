@@ -21,7 +21,7 @@
 <template id="calc-tpl">
     <div>
         <ul>
-            <li v-for="(item, i) in items" :key="i">
+            <li v-for="(item, i) in items" :key="item.name">
                 {{item.name}}, остаток: {{item.rest}}
             </li>
         </ul>
@@ -79,10 +79,32 @@
     },
     methods: {
       deleteItem () {
-        this.deleted = _.remove(this.items, function (el) {
+        // First solution
+        const items = [...this.items]
+        this.deleted = _.remove(items, function (el) {
           return el.rest === 0
         })
+        this.items = items
+        
+        // Second solution
+        // this.deleted = this.items.filter((item) => item.rest === 0)
+        // this.items = this.items.filter((item) => item.rest !== 0)
+        
+        
+        // Third solution
+        // const items = []
+        // const deleted = []
+        // this.items.forEach((item, index) => {
+        //   if(item.rest === 0) {
+        //     deleted.push(item)
+        //   } else {
+        //     items.push(item)
+        //   }
+        // })
+        // this.deleted = deleted
+        // this.items = items
       }
+
     }
   })
   new Vue({
